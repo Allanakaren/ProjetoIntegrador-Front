@@ -24,6 +24,14 @@
 
 .btn-style{
     outline: none;
-    border-radius: 100px;
+    border-radius: 50px;
     transition: 500ms ease-in-out;
+}
+
+.fa{
+    padding-right: 2rem;
+}
+
+.borda {
+  border-radius: 1rem
 }

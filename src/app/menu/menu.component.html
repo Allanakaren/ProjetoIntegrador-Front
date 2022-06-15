@@ -1,38 +1,82 @@
 <nav class="navbar navbar-expand-lg bg-inverno">
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto d-flex align-items-center">
-            <li class="nav-item">
-                <img src="https://i.imgur.com/WyaqWG2.png" alt="logo compravisse" width="120px" height="120px" class="img-fluid">
-            </li>            
-        </ul>
-    
-        <ul class="navbar-nav ml-auto d-flex align-items-center">
-            <li class="nav-item pl-3">
-                <a href="">
-                  <p class="text-color-outono m-0">
-                    <i class="fa fa-user fa-2x" aria-hidden="true"></i>
-                  </p>
-                </a> 
-            </li>            
-            <li class="nav-item pl-3 fs-10 mt-2">
-                <p class="text-center">
-                    Faça <a routerLink="/login">Login</a><br>              
-                    ou <a routerLink="/cadastro">Cadastre-se</a>
-                </p>                
-            </li>              
-            <li class="nav-item pl-4 pr-3">
+
+  <div class="collapse navbar-collapse">
+      <div>
+      <h5 class="text-color-outono font-weight-bold ml-5">Na dúvida vai de jeans!</h5>
+      </div>
+      <ul class="navbar-nav ml-auto d-flex align-items-center">
+          <li class="nav-item">
+              <img src="https://i.imgur.com/WyaqWG2.png" alt="logo compravisse" width="120px" height="120px" class="img-fluid">
+          </li>            
+      </ul>
+  
+      <ul class="navbar-nav ml-auto d-flex justify-content-around align-items-center ">
+          <li class="nav-item pl-3">
               <a href="">
                 <p class="text-color-outono m-0">
-                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+                  <i class="fa fa-user fa-2x" aria-hidden="true"></i>
                 </p>
               </a> 
-            </li>                            
-        </ul>  
-    </div>
+          </li>            
+          <li class="nav-item pl-3 fs-10 mt-2">
+            <div class=" d-flex align-items-center justify-content-center" *ngIf='!auth.logado()'>
+              <p class="text-center">
+                Faça <a routerLink="/login">Login</a><br>              
+                ou <a routerLink="/cadastro">Cadastre-se</a>
+              </p>
+            </div>
+            <div class=" d-flex flex-column align-items-center justify-content-center" *ngIf='auth.logado()'>
+              <div class="dropdown">
+                <a class="nav-link dropdown-toggle text-color-outono text-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  Olá, {{auth.nome}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">
+                    <i class="fa fa-shopping-bag mr-1" aria-hidden="true"></i>
+                    Meus pedidos
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="fa fa-heart mr-1" aria-hidden="true"></i>
+                    Meus favoritos
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" (click)='sair()'>
+                    <i class="fa fa-power-off mr-1" aria-hidden="true"></i>
+                    Sair
+                  </a>
+                </div>
+              </div>              
+            </div>                             
+          </li>              
+          <li class="nav-item pl-3 pr-3">
+            <a routerLink="/carrinho">
+              <p class="text-color-outono m-0">
+                  <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+              </p>
+            </a> 
+          </li>
+          
+          <!-- ! carrinho icone notificação -->
+
+          <!-- (click)='getProdutoById(produto.id)' --> 
+
+          <!-- <li class="nav-item pl-3 pr-3">
+            <i class="fa fa-shopping-cart icons position-relative" aria-hidden="true" routerLink='/carrinho'>
+              <span *ngIf='carro.totalItems >= 1' class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                {{carro.totalItems}}
+                <span class="visually-hidden">Itens no carrinho</span>
+              </span>
+            </i>
+     
+          </li>                             -->
+
+          <!-- ! -->
+      </ul>  
+  </div>
 </nav>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
            
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
       <span class="navbar-toggler-icon"></span>
@@ -40,21 +84,21 @@
   
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item pl-5">
-          <a class="nav-link text-format" href="#">MASCULINO</a>
-        </li>
-        <li class="nav-item pl-5">
-          <a class="nav-link text-format" href="#">FEMININO</a>
-        </li>
-        <li class="nav-item pl-5">
-          <a class="nav-link text-format" href="#">INFANTIL</a>
-        </li>
-        <li class="nav-item pl-5">
-            <a class="nav-link text-format" href="#">SALDÃO</a>
-        </li>
-        <li class="pl-5">
+        <ul class="navbar-nav mb-2 mb-lg-0 p-0">
+          <li class="nav-item navHover w-auto text-format ml-3 mr-3">
+            <a class="nav-link text-format" aria-current="page"[routerLink]="['/inicio']">Home</a>
+          </li>
+          <li class="nav-item navHover w-auto text-format ml-3 mr-3">
+            <a class="nav-link text-format" aria-current="page">Quem somos</a>
+          </li>
+          <li class="nav-item navHover w-auto text-format ml-3 mr-3" *ngFor='let cat of listaCategoria'>
+            <a class="nav-link text-format" aria-current="page" [routerLink]="['/categoria', cat.id]">
+            {{cat.descricao}}</a>
+          </li>
+        </ul>
+        <li class="pl-5 ml-5">
           <form class="form-inline my-2 my-lg-0">
-            <input class="btn form-format mr-sm-0 text-white" type="search" placeholder="O que você está procurando?" aria-label="Pesquisar">
+            <input class="btn form-format mr-sm-0 text-white" type="search" name="pesquisa" id="pesquisa" placeholder="O que você está procurando?" aria-label="Pesquisar" [(ngModel)]="nomeProduto" (keyup)="findByNomeProduto()">
             <button class="btn btn-search bg-outono my-2 my-sm-0" type="submit">
               <i class="fa fa-search text-white fa-lg" aria-hidden="true"></i>
             </button>

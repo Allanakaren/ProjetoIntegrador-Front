@@ -5,7 +5,7 @@
       <div class="col-md-6 mt-5 mb-5">
         <div class="row d-flex justify-content-center">
           <div class="col-md-10">
-            <h1 class="text-center">Cadastro de produto</h1>
+            <h1 class="text-center">Cadastro de produtos</h1>
   
             <div class="form-group">
               <label for="nome">Nome</label>
@@ -15,7 +15,7 @@
                 type="text"
                 name="nome"
                 id="nome"
-                placeholder="Digite seu nome"
+                placeholder="Digite o nome do produto"
               />
             </div>
   
@@ -27,19 +27,19 @@
                 type="text"
                 name="usuario"
                 id="usuario"
-                placeholder="Digite seu E-mail"
+                placeholder="Descreva o produto"
               />
             </div>
   
             <div class="form-group">
-              <label for="foto">Link da foto</label>
+              <label for="foto">Foto</label>
               <input
                 [(ngModel)]="produto.foto"
                 class="form-control"
                 type="text"
                 name="foto"
                 id="foto"
-                placeholder="Insira link da sua foto"
+                placeholder="Insira link da foto do produto"
               />
             </div>
   
@@ -48,10 +48,10 @@
               <input
                 [(ngModel)]="produto.tamanho"
                 class="form-control"
-                type="password"
+                type="text"
                 name="senha"
                 id="senha"
-                placeholder="Digite sua senha"
+                placeholder="Digite o tamanho do produto"
               />
             </div>
   
@@ -60,10 +60,10 @@
               <input
                 [(ngModel)]="produto.preco"
                 class="form-control"
-                type="password"
+                type="number"
                 name="senha"
                 id="confirmSenha"
-                placeholder="Digite sua senha novamente"
+                placeholder="Digite o preço do produto"
               />
             </div>
   
@@ -80,7 +80,7 @@
               <button
                 type="submit"
                 class="btn btn-danger mr-4"
-                routerLink="/entrar"
+                routerLink="/inicio"
               >
                 Cancelar
               </button>

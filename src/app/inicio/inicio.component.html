@@ -4,14 +4,19 @@
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner center-block">
                     <div class="carousel-item active">
-                        <img src="../../assets/img/a.jpeg" class="d-block w-100" alt="...">
+                        <img src="../../assets/img/Foto1.jpeg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="../../assets/img/a.jpeg" class="d-block w-100" alt="...">
+                        <img src="../../assets/img/Foto2.jpeg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="../../assets/img/3.jpg" class="d-block w-100" alt="...">
-    
+                        <img src="../../assets/img/Foto3.jpeg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../assets/img/Foto4.jpeg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../assets/img/Pessoas.jpeg" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
@@ -28,12 +33,44 @@
     </div>
 </div>
 
-<div class="card" *ngFor='let item of listaProduto' style="width: 18rem;">
-    <img src="{{item.foto}}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{item.nome}}</h5>
-      <p class="card-text">{{item.preco}}</p>
-      <p class="card-text"><small class="text-muted">By: {{item.usuario.nome}}</small></p>
-      <a href="#" class="btn btn-primary">Comprar</a>
+<div class="container mt-5">
+    <div class="row d-flex justify-content-around p-0 m-0 p-sm-0 m-sm-0">
+        <div class="produto-card my-3" style="width: 16rem" *ngFor='let item of listaProduto' >
+        <div class="card">
+            <a [routerLink]="['/produto', item.id]">
+            <img
+                [src]="item.foto"
+                alt="Card image cap"
+                class="imagem-card"
+            />
+            </a>
+            <div class="card-body p-0">
+            <p
+                class="card-text text-center fw-bold text-nowrap elipse m-1 fs-6"
+            >
+                {{ item.nome }}
+            </p>
+            <div class="d-flex">
+                <div class="d-flex flex-column justify-content-between m-2">
+                <small
+                    class="m-1 fw-bold text-line-decoration"
+                    >{{ item.preco | currency: "BRL" }}</small
+                >
+                <h5 class="mx-1 mb-0 text-blue">
+                    {{ item.preco - item.preco * 0.15 | currency: "BRL" }}
+                </h5>
+                <small class="mx-1 mt-2 pb-2 text-small text-blue"
+                    >Vendido por: {{item.usuario.nome}}</small>
+                    
+                </div>
+            </div>
+            <button class="btn w-100 comprar text-white bg-outono">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                <span class="ml-2" [routerLink]="['/produto', item.id]"
+                >Comprar</span>
+            </button>
+            </div>
+        </div>
+        </div>
     </div>
-  </div>
+</div>

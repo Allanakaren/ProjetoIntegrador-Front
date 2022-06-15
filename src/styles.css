@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+.bg-inverno{
+    background-color: #89b0bf;
+}
+
+.bg-outono{
+    background-color: #40311e;
+}
+
+.bg-verao{
+    background-color: #c77c00;
+}
+
+.bg-primavera{
+    background-color: #e4bda3;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.text-color-outono{
+    color: #40311e;
+}
+
+.fs-10{
+    font-size: 10pt;
+}
+
+.fs-30{
+    font-size: medium;
+}
+
+.btn.btn-search{
+    border-radius: 0px;
+    height: 40px;
+    background-color: #40311e;     
+}
+
+.btn.form-format{
+    border-radius: 0px;
+    height: 40px;
+    background-color: #40311e;
+    width: 250px;
+}
+
+.text-format{       
+    letter-spacing:0.1em;
+    font-weight: bold;
+}
+
+.text-bold{
+    font-weight: bold;
+}
+
+
+input::placeholder {
+    color: white;
+  }

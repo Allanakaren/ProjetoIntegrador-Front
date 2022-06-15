@@ -1,0 +1,96 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6" id="img-bg"></div>
+  
+      <div class="col-md-6 mt-5 mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-10">
+            <h1 class="text-center text-danger">Atualizar produto</h1>
+  
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input
+                [(ngModel)]="produto.nome"
+                class="form-control"
+                type="text"
+                name="nome"
+                id="nome"
+                placeholder="Digite o nome do produto"
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="usuario">Descrição</label>
+              <input
+                [(ngModel)]="produto.descricao"
+                class="form-control"
+                type="text"
+                name="usuario"
+                id="usuario"
+                placeholder="Descreva o produto"
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="foto">Foto</label>
+              <input
+                [(ngModel)]="produto.foto"
+                class="form-control"
+                type="text"
+                name="foto"
+                id="foto"
+                placeholder="Insira link da foto do produto"
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="senha">Tamanho</label>
+              <input
+                [(ngModel)]="produto.tamanho"
+                class="form-control"
+                type="text"
+                name="senha"
+                id="senha"
+                placeholder="Digite o tamanho do produto"
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="confirmSenha">Preço</label>
+              <input
+                [(ngModel)]="produto.preco"
+                class="form-control"
+                type="text"
+                name="senha"
+                id="confirmSenha"
+                placeholder="Digite o preço do produto"
+              />
+            </div>
+  
+            <div class="form-group">
+                <label for="texto">Escolha uma categoria</label>
+                <select name="categoria" id="categoria" class="form-control" [(ngModel)]="idCategoria" (change)="findByIdCategoria()">
+                  <option *ngFor="let item of listaCategoria" value="{{item.id}}">
+                    {{item.descricao}}
+                  </option>
+                </select>
+              </div>
+  
+            <div class="d-flex justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-danger mr-4"
+                routerLink="/inicio"
+              >
+                Cancelar
+              </button>
+              <button type="submit" class="btn btn-success" (click)="atualizar()">
+                Atualizar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

@@ -29,5 +29,9 @@
 }
 
 .fa{
-    padding-right: 5em;
+    padding-right: 2rem;
+}
+
+.borda {
+  border-radius: 1rem
 }

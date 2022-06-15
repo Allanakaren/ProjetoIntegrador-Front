@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -33,10 +34,11 @@ export class PostagemComponent implements OnInit {
   ngOnInit(){
 
     if(environment.token == ''){
-      alert('Sua seção expirou, faça login novamente.')
-      this.router.navigate(['/entrar'])
+      alert('Faça login para inserir um novo produto.')
+      this.router.navigate(['/login'])
     }
     
+    this.produtoService.refreshToken()
     this.getAllCategoria()
   }
   
@@ -63,7 +65,7 @@ export class PostagemComponent implements OnInit {
 
     this.produtoService.postProduto(this.produto).subscribe((resp: Produto)=>{
       this.produto = resp
-      alert('Postagem realizada com sucesso!')
+      alert('Produto adicionado com sucesso!')
       this.produto = new Produto()
     })
    

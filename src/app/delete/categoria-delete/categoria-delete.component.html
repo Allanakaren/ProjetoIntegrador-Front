@@ -1,0 +1,29 @@
+<div class="container mb-5 mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center text-secondary">Apagar categoria</h1>
+        </div>
+    </div>
+
+    <div class="ro mb-3">
+        <div class="col-md-12">
+            <h4 class="text-center text-secondary">Você tem certeza que deseja apagar essa categoria? Todas as postagens relacionadas a ela serão igualmente apagadas.</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="text-center text-info">Categoria: "{{categoria.descricao}}"</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            <button class="btn btn-success mr-3" (click)="deletar()">Sim</button>
+            <button class="btn btn-danger" routerLink="/cadcategoria">Não</button>
+        </div>
+    </div>
+
+
+
+</div>

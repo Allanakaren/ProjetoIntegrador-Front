@@ -1,68 +1,119 @@
-<div class="container-fluid d-flex justify-content-center pt-5 bg-inverno">
-    <div class="flex-direction-column">
-        <img src="../../assets/img/passaro-xilogravura.png" alt="imagem de cordel passaro">
-        <br>
-        <img src="../../assets/img/Garota-xilogravura.png" alt="imagem de cordl garota">
-            </div>
-<!-- card -->
-<div class="card" style="width: 32rem;">
-    <div class="card-body">
-        <ul class="navbar-nav ml-auto d-flex align-items-center">
-            <li class="nav-item pb-2">
-                <img src="https://i.imgur.com/WyaqWG2.png" alt="logo compravisse" width="100px" height="100px" class="img-fluid pt-2 pb-2">
-            </li>            
-        </ul>
-      <h6 class="card-subtitle mb-2 text-muted text-center text-black">Acesse a sua conta</h6>
-
-<!-- /forms -->
+<div class="container-fluid py-5 bg-inverno">
     <div class="row d-flex align-items-center">
-        <div class="col-md-12">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-10">
-
+      <div class="col-md-3">
+        <div class="d-flex flex-column">
+          <img
+            src="../../assets/img/passaro-xilogravura.png"
+            alt="imagem de cordel passaro"
+          />
+  
+          <img
+            src="../../assets/img/Garota-xilogravura.png"
+            alt="imagem de cordel garota"
+          />
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-4">
+        <div class="card borda">
+          <div class="card-body">
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+              <li class="nav-item pb-2">
+                <img
+                  src="https://i.imgur.com/WyaqWG2.png"
+                  alt="logo compravisse"
+                  width="100px"
+                  height="100px"
+                  class="img-fluid pt-2 pb-2"
+                />
+              </li>
+            </ul>
+            <h6 class="card-subtitle mb-2 text-muted text-center text-black">
+              Acesse a sua conta
+            </h6>
+  
+            <!-- /forms -->
+            <div class="row d-flex align-items-center">
+              <div class="col-md-12">
+                <div class="row d-flex justify-content-center">
+                  <div class="col-md-10">
                     <!-- redes sociais -->
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn bg-facebook text-white w-100 mt-3 mb-2 btn-style"><i class="fa fa-facebook" aria-hidden="true"> Entrar com o Facebook</i></button>
+                      <button
+                        type="submit"
+                        class="btn bg-facebook text-white w-100 mt-3 mb-2 btn-style"
+                      >
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <span>Entrar com o Facebook</span>
+                      </button>
                     </div>
-
+  
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn bg-google text-white w-100 mb-3 btn-style"><i class="fa fa-google" aria-hidden="true"> Entrar com o Google</i></button>
+                      <button
+                        type="submit"
+                        class="btn bg-google text-white w-100 mb-3 btn-style"
+                      >
+                        <i class="fa fa-google" aria-hidden="true"></i>
+                        <span>Entrar com o Google</span>
+                      </button>
                     </div>
-                <!-- /redes sociais -->
-
+                    <!-- /redes sociais -->
+  
                     <div class="form-group">
-                        <label for="usuario">E-mail</label>
-                        <input [(ngModel)]='usuarioLogin.usuario' class="form-control" type="text" name="usuario" 
-                        id="usuario" placeholder="Digite seu E-mail">
+                      <label for="usuario">E-mail</label>
+                      <input
+                        [(ngModel)]="usuarioLogin.usuario"
+                        class="form-control"
+                        type="text"
+                        name="usuario"
+                        id="usuario"
+                        placeholder="Digite seu E-mail"
+                      />
                     </div>
-
+  
                     <div class="form-group">
-                        <label for="senha">Senha</label>
-                        <p class="text-right">
-                            <a href="">Esqueceu sua senha?</a>
-                            </p>
-                        <input [(ngModel)]='usuarioLogin.senha'class="form-control" type="password" name="senha" 
-                        id="senha" placeholder="Digite sua senha">
+                      <label for="senha">Senha</label>
+                      <p class="text-right">
+                        <a href="">Esqueceu sua senha?</a>
+                      </p>
+                      <input
+                        [(ngModel)]="usuarioLogin.senha"
+                        class="form-control"
+                        type="password"
+                        name="senha"
+                        id="senha"
+                        placeholder="Digite sua senha"
+                      />
                     </div>
-
+  
                     <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn bg-verao text-white btn-style w-100" (click)="login()" >Entrar</button>
+                      <button
+                        type="submit"
+                        class="btn bg-verao text-white btn-style w-100"
+                        (click)="login()"
+                      >
+                        Entrar
+                      </button>
                     </div>
-
-                    <hr class="mt-3 mb-3">
-
+  
+                    <hr class="mt-3 mb-3" />
+  
                     <p class="text-center">
-                        Não tem uma conta? <a routerLink="/cadastro">Cadastre-se</a>
+                      Não tem uma conta? <a routerLink="/cadastro">Cadastre-se</a>
                     </p>
-
+                  </div>
                 </div>
+              </div>
             </div>
-
+          </div>
+  
+          <!-- /card -->
+          <!-- /forms -->
+          
         </div>
-
+      </div>
     </div>
-
-</div>
-
-<!-- /card -->
-<!-- /forms -->
+    <!-- card -->
+  
+  </div>
+  

@@ -46,9 +46,15 @@
 .text-format{       
     letter-spacing:0.1em;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 
 input::placeholder {
     color: white;
-  }
+}
+
+.text-format:hover{
+    background-color:#c77c00;
+    color: white;
+}

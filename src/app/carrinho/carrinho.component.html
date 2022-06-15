@@ -1,0 +1,280 @@
+<div class="container d-flex mt-5 mb-5">
+  <div class="col-md-8">
+    <h3 class="mb-4 ml-3">CARRINHO</h3>
+
+    <form>
+      <div class="card col-md-12" style="width: 35rem">
+        <div class="card-body">
+          <div class="form-group col-md-12">
+            <h4 class="card-title">
+              <label for="inputCEP">Calcular frete e prazo</label>
+            </h4>
+
+            <!--  calcular frete e prazo -->
+            <div class="d-flex align-items-center">
+              <input
+                mask="AAAA-AAA"
+                type="text"
+                class="form-control mr-3"
+                id="inputCEP"
+                placeholder="Digite seu CEP aqui"
+              />
+
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn bg-inverno fw w-50 text-white"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                Calcular frete
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h3 class="modal-title" id="exampleModalLabel">
+                        &nbsp; FRETE GRÁTIS! 🥳
+                      </h3>
+                    </div>
+                    <div class="modal-body">
+                      <h5 class="text-muted">
+                        Aproveite! Promoção de inauguração válida até
+                        13/07/2022.
+                      </h5>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-success"
+                        data-dismiss="modal"
+                      >
+                        Fechar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / calcular frete e prazo -->
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- fim forms -->
+
+    <!-- card miniatura do produto -->
+
+    <div class="card mb-5 mt-5" style="width: 35rem">
+      <div class="card-body ml-3">
+        <p class="card-subtitle mb-4 mt-2 ml-1">
+          Vendido e entregue por <a href="">Compra, visse?!</a>
+        </p>
+        <div class="d-flex align-items-center">
+          <img
+            class="w-50"
+            src="../../assets/img/3.jpg"
+            alt="foto do produto aqui"
+          />
+          <p class="ml-4 mt-3">Quantidade:</p>
+          <button class="ml-3 borda bg-verao" (click)="offClick()">
+            <i class="fa fa-minus text-white" aria-hidden="true"></i>
+          </button>
+          <option class="ml-2" value="">{{ sumValue }}</option>
+          <button class="ml-2 borda bg-verao" (click)="onClick()">
+            <i class="fa fa-plus text-white" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- / card miniatura do produto -->
+
+    <!-- ? CARD COMPRAS FAKE -->
+    <div class="container-fluid my-4">
+      <div class="container">
+        <div class="row">
+          <h3 class="text-info">Minhas compras</h3>
+        </div>
+        <div class="row d-flex align-items-center justify-content-between">
+          <div class="col-7">
+            <div
+              class="row border rounded border-dark p-0 mb-3"
+              *ngFor="let produto of listaCompras"
+            >
+              <div class="col-3 p-0 m-0">
+                <img [src]="produto.foto" alt="" class="produtoFoto rounded" />
+              </div>
+              <div class="col-6 d-flex flex-column justify-content-center">
+                <div class="row">
+                  <h5 class="">{{ produto.nome }}</h5>
+                  <p>Categoria: {{ produto.categoria.descricao }}</p>
+                  <p class='m-0'>By: {{produto.fornecedor}}</p>
+                </div>
+              </div>
+              <div class="col-3">
+                <div
+                  class="row d-flex justify-content-center align-items-center h-100"
+                >
+                  <h5 class="text-center">
+                    {{ produto.preco | currency: "BRL" }}
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ?/ CARD COMPRAS FAKE -->
+
+          <!--  CARD CALC PRECO DOS PRODUTOS -->
+
+          
+
+          <!--  / FIM CARD CALC PRECO DOS PRODUTOS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inicio do card de total - alinhado na direita -->
+  <div class="col-md-4">
+    <div class="d-flex align-content-center mt-3 ">
+      <div class="card" style="width: 100%">
+        <div class="card-body">
+          <div class="col-12">
+            <div class="row d-flex">
+              <div class="col-12">
+                <div
+                  class="row d-flex justify-content-center align-items-center"
+                >
+                  <h4 class="text-center mt-3">
+                    Total: {{ +total() | currency: "BRL" }}
+                  </h4>
+                  <p class="text-center">
+                    em até 12 parcelas de:
+                    {{ parcela() | currency: "BRL" }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ! Botão e modal de finalizar compra -->
+
+          <div class="row">
+            <div class="col-12">
+              <div class="row justify-content-center">
+                <!-- botão -->
+                <button
+                  type="button"
+                  class="btn bg-inverno fw text-white mb-2"
+                  data-toggle="modal"
+                  data-target="#exampleModalCenter"
+                >
+                  Finalizar compra
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- ! / FIM modal de finalizar compra -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">
+          Compra realizada com sucesso!
+        </h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 class="text-muted">
+          Aguarde... Em instantes você recebera todas as informações da compra
+          através do e-mail cadastrado!
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-dismiss="modal"
+          routerLink="/inicio"
+        >
+          Ok
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">
+          Compra realizada com sucesso!
+        </h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 class="text-muted">
+          Aguarde... Em instantes você recebera todas as informações da compra
+          através do e-mail cadastrado!
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-dismiss="modal"
+          routerLink="/inicio"
+        >
+          Ok
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

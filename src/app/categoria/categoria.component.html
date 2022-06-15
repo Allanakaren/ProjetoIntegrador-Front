@@ -1,1 +1,71 @@
-<p>categoria works!</p>
+<div class="container-fluid mt-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-8 flex-column ">
+            <div class="row text-color-outono mt-2">
+                <h4 class="ml-5">Navegue por estações:</h4>
+                <div class="col-md-12 d-flex justify-content-around mt-3">            
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="circulo bg-primavera mb-2"></div>  
+                        <h5 class="text-bold">Primavera</h5>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="circulo bg-verao mb-2"></div>
+                        <h5 class="text-bold">Verão</h5> 
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="circulo bg-outono mb-2"></div>
+                        <h5 class="text-bold">Outono</h5>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="circulo bg-inverno mb-2"></div> 
+                        <h5 class="text-bold">Inverno</h5> 
+                    </div>                           
+                </div>
+            </div>
+            
+        
+        
+            <div class="row d-flex justify-content-around p-0 m-0 p-sm-0 m-sm-0">
+                <div class="produto-card my-3" *ngFor="let produto of categoria.produto">
+                  <div class="card">
+                    <a [routerLink]="['/detalhesProduto', produto.id]">
+                      <img
+                        [src]="produto.foto"
+                        alt="Card image cap"
+                        class="imagem-card"
+                      />
+                    </a>
+                    <div class="card-body p-0">
+                      <p
+                        class="card-text text-center fw-bold text-nowrap elipse m-1 fs-6"
+                      >
+                        {{ produto.nome }}
+                      </p>
+                      <div class="d-flex">
+                        <div class="d-flex flex-column justify-content-between m-2">
+                          <small
+                            class="m-1 fw-bold text-line-decoration"
+                            >{{ produto.preco | currency: "BRL" }}</small
+                          >
+                          <h5 class="mx-1 mb-0 text-blue">
+                            {{ produto.preco - produto.preco * 0.15 | currency: "BRL" }}
+                          </h5>
+                          <small class="mx-1 mt-2 pb-2 text-small text-blue"
+                            >Vendido por: {{produto.usuario.nome}}</small>
+                            
+                        </div>
+                      </div>
+                      <button class="btn w-100 comprar text-white bg-outono">
+                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        <span class="ml-2" [routerLink]="['/produto', produto.id]"
+                        >Comprar</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        
+        </div>
+    </div>
+
